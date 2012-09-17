@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/xhtml; charset=UTF-8" />
+	<title>Index</title>
+	<a4j:region>
+		<script language="javascript">
+			A4J.AJAX.onExpired = function(loc, expiredMsg) {
+				if (window.confirm(expiredMsg)) {
+					return "/index.html";
+				} else {
+					return false;
+				}
+			}
+		</script>
+	</a4j:region>
+</h:head>
+
+<h:body>
+	<f:view>
+		<h:form>
+			<table>
+				<tr>
+					<td><h:outputLabel for="id" value="Id : " /></td>
+					<td><h:inputText id="id" value="#{B01I001001.continent.continentId}"/></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel for="nameEn" value="Name  En: " /></td>
+					<td><h:inputText id="nameEn" value="#{B01I001001.continent.nameEn}"/></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel for="nameBn" value="Name  Bn: " /></td>
+					<td><h:inputText id="nameBn" value="#{B01I001001.continent.nameBn}"/></td>
+				</tr>
+				<tr>
+					<td><h:commandButton id="addUser" value="Add" action="#{B01I001001.addUser}" ajax="false" /></td>
+					<td><h:commandButton id="reset" value="Reset" action="#{B01I001001.reset}" ajax="false" /></td>
+				</tr>
+			</table>
+		</h:form>
+	</f:view>
+</h:body>
+</html>
